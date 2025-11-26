@@ -204,30 +204,24 @@ window.addEventListener('scroll', () => {
 
 animateSkills(); // Vérification initiale
 
-// Effet de frappe pour la section Hero (Optionnel)
+// Effet de frappe pour la section Hero
 const typingText = document.querySelector('.typing-effect');
 if (typingText) {
     const text = typingText.textContent;
     typingText.textContent = '';
     let i = 0;
-    let lastTime = 0;
     
-    function typeWriter(timestamp) {
-        if (!lastTime) lastTime = timestamp;
-        const elapsed = timestamp - lastTime;
-        
-        if (elapsed > 100 && i < text.length) {
+    const typeWriter = () => {
+        if (i < text.length) {
             typingText.textContent += text.charAt(i);
             i++;
-            lastTime = timestamp;
+            if (i < text.length) {
+                setTimeout(typeWriter, 100);
+            }
         }
-        
-        if (i < text.length) {
-            requestAnimationFrame(typeWriter);
-        }
-    }
+    };
     
-    requestAnimationFrame(typeWriter);
+    typeWriter();
 }
 
 // Effet parallaxe pour la section hero
