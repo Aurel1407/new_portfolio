@@ -1,179 +1,75 @@
-# Portfolio Professionnel - Aurélien Thébault
+# Portfolio - Aurélien Thébault
 
-Portfolio professionnel moderne créé avec HTML, CSS (Tailwind) et JavaScript.
+Portfolio professionnel de développeur web full-stack. Design moderne, animations fluides, accessibilité WCAG 2.1 AA.
 
-## 🚀 Fonctionnalités
+**[Voir le site en ligne](https://aurel1407.github.io/new_portfolio/)**
 
-- ✨ Design moderne et responsive
-- 🎨 Animations fluides et élégantes
-- 📱 Compatible mobile, tablette et desktop
-- 🌙 Navigation smooth avec indicateur de section active
-- 💼 Section projets avec filtres et hover effects
-- 📧 Formulaire de contact fonctionnel
-- 🎯 Barres de progression pour les compétences
-- 🔝 Bouton "retour en haut" animé
-- 🎮 Easter egg Konami Code
+## Stack Technique
 
-## 📋 Sections
+- **Frontend** : HTML5, Tailwind CSS, JavaScript (Vanilla)
+- **Outils** : Git, GitHub Pages, Font Awesome, Google Fonts
+- **Accessibilité** : ARIA labels, navigation clavier, contraste optimisé
+- **Performance** : Images WebP, lazy loading, animations GPU
 
-1. **Hero** - Introduction avec photo de profil et liens sociaux
-2. **À propos** - Présentation détaillée et statistiques
-3. **Compétences** - Front-end, Back-end et Outils avec barres de progression
-4. **Projets** - Galerie de projets avec technologies utilisées
-5. **Contact** - Formulaire de contact et informations
-6. **Footer** - Liens rapides et newsletter
+## Fonctionnalités
 
-## 🛠️ Technologies utilisées
+- Interface responsive (mobile-first)
+- Animations CSS personnalisées
+- Protection anti-spam des coordonnées (JavaScript obfuscation)
+- Formulaire de contact intégré (Formspree)
+- Navigation smooth avec indicateur de section active
+- Accessibilité renforcée (WCAG 2.1 AA)
+- SEO optimisé (Schema.org, Open Graph, meta tags)
 
-- **HTML5** - Structure sémantique
-- **Tailwind CSS** - Framework CSS utilitaire
-- **JavaScript Vanilla** - Interactivité
-- **Font Awesome** - Icônes
-- **Google Fonts (Inter)** - Typographie
-
-## 📦 Structure des fichiers
+## Structure
 
 ```
-Portfolio_Aurélien_Thébault/
-│
+.
 ├── index.html          # Page principale
-├── style.css           # Styles personnalisés et animations
-├── script.js           # Fonctionnalités JavaScript
-└── README.md           # Documentation
+├── style.css           # Animations et styles personnalisés
+├── script.js           # Interactivité et protection anti-spam
+├── images/             # Ressources visuelles
+│   ├── profile-photo.webp
+│   ├── zetoupanda-logo.svg
+│   └── shuno-logo.svg
+└── favicon.svg         # Icône du site
 ```
 
-## 🎨 Personnalisation
+## Installation Locale
 
-### Couleurs principales
+```bash
+# Cloner le repository
+git clone https://github.com/Aurel1407/new_portfolio.git
 
-Les couleurs peuvent être modifiées dans la configuration Tailwind (dans index.html) :
-
-```javascript
-colors: {
-    primary: '#3b82f6',      // Bleu principal
-    secondary: '#1e40af',    // Bleu secondaire
-    dark: '#0f172a',         // Couleur sombre
-}
+# Ouvrir index.html dans un navigateur
+# Ou utiliser un serveur local (Live Server, http-server, etc.)
 ```
 
-### Contenu à modifier
+## Déploiement
 
-1. **Photo de profil** : Remplacer `https://via.placeholder.com/150` par votre photo
-2. **Images de projets** : Remplacer les placeholders dans la section projets
-3. **Informations personnelles** : Nom, titre, description, coordonnées
-4. **Liens sociaux** : GitHub, LinkedIn, email
-5. **Compétences** : Adapter les technologies et pourcentages
-6. **Projets** : Ajouter vos propres projets
+Le site est automatiquement déployé sur **GitHub Pages** depuis la branche `main` (répertoire root).
 
-### Ajouter un nouveau projet
+Toute modification poussée sur `main` déclenche un redéploiement automatique.
 
-```html
-<div
-  class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
->
-  <div class="relative overflow-hidden group">
-    <img
-      src="votre-image.jpg"
-      alt="Nom du projet"
-      class="w-full h-64 object-cover"
-    />
-    <div
-      class="absolute inset-0 bg-primary bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity"
-    >
-      <div class="text-center">
-        <a
-          href="#"
-          class="inline-block bg-white text-primary px-6 py-2 rounded-lg"
-        >
-          <i class="fas fa-eye mr-2"></i>Voir
-        </a>
-        <a
-          href="#"
-          class="inline-block bg-white text-primary px-6 py-2 rounded-lg"
-        >
-          <i class="fab fa-github mr-2"></i>Code
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="p-6">
-    <h3 class="text-xl font-bold text-gray-900 mb-2">Nom du projet</h3>
-    <p class="text-gray-600 mb-4">Description du projet</p>
-    <div class="flex flex-wrap gap-2">
-      <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
-        >Tech 1</span
-      >
-      <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm"
-        >Tech 2</span
-      >
-    </div>
-  </div>
-</div>
-```
+## Projets Présentés
 
-## 🚀 Déploiement
+- **ZetouPanda** : Application e-commerce (React, TypeScript, Node.js, SQL)
+- **Shu-no** : Plateforme de réservation de gîtes (React, TypeScript, Node.js, Express)
+- **Portfolio** : Site personnel (HTML5, Tailwind CSS, JavaScript)
 
-### Sur Laragon (local)
+## Optimisations Sécurité
 
-Votre portfolio est déjà accessible localement via Laragon :
+- Content Security Policy (CSP) stricte
+- Protection anti-spam des contacts (obfuscation JavaScript)
+- Données sensibles retirées du Schema.org
+- Validation des formulaires côté client
 
-- URL : `http://localhost/Portfolio_Aurélien_Thébault`
+## Contact
 
-### Hébergement en ligne
+- GitHub : [github.com/Aurel1407](https://github.com/Aurel1407)
+- LinkedIn : [linkedin.com/in/aurélien-thébault-244b84336](https://www.linkedin.com/in/aurélien-thébault-244b84336)
+- Formulaire de contact disponible sur le site
 
-1. **GitHub Pages** (Gratuit)
+## Licence
 
-   - Créer un repository GitHub
-   - Uploader les fichiers
-   - Activer GitHub Pages dans les settings
-
-2. **Netlify** (Gratuit)
-
-   - Créer un compte Netlify
-   - Drag & drop le dossier du portfolio
-   - Site déployé en quelques secondes
-
-3. **Vercel** (Gratuit)
-   - Créer un compte Vercel
-   - Connecter votre repository GitHub
-   - Déploiement automatique
-
-## 📱 Responsive
-
-Le portfolio est entièrement responsive et s'adapte à toutes les tailles d'écran :
-
-- 📱 Mobile (< 640px)
-- 📱 Tablette (640px - 1024px)
-- 💻 Desktop (> 1024px)
-
-## ⚡ Performance
-
-- Chargement rapide avec CDN
-- Images optimisées
-- Animations CSS performantes
-- Code JavaScript optimisé avec debounce
-
-## 🔧 Améliorations futures possibles
-
-- [ ] Mode sombre
-- [ ] Multilingue (FR/EN)
-- [ ] Blog intégré
-- [ ] Galerie photos
-- [ ] Témoignages clients
-- [ ] Intégration API pour le formulaire
-- [ ] Analytics (Google Analytics)
-- [ ] SEO optimisé
-
-## 📞 Contact
-
-- Email : contact@exemple.com
-- LinkedIn : [Votre profil]
-- GitHub : [Votre profil]
-
-## 📄 Licence
-
-Ce projet est libre d'utilisation pour votre portfolio personnel.
-
----
-
-**Créé avec ❤️ par Aurélien Thébault**
+© 2025 Aurélien Thébault - Tous droits réservés
