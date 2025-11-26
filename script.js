@@ -1,4 +1,4 @@
-// Menu mobile - Optimisé
+// Menu mobile
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
@@ -9,7 +9,7 @@ if (mobileMenuBtn && mobileMenu) {
         mobileMenu.classList.toggle('hidden');
         
         // Mettre à jour le label du bouton pour les lecteurs d'écran
-        mobileMenuBtn.setAttribute('aria-label', isExpanded ? 'Ouvrir le menu de navigation' : 'Fermer le menu de navigation');
+        mobileMenuBtn.setAttribute('aria-label', isExpanded ? 'Fermer le menu de navigation' : 'Ouvrir le menu de navigation');
     });
 
     // Fermer le menu mobile en cliquant sur un lien
@@ -22,7 +22,7 @@ if (mobileMenuBtn && mobileMenu) {
     });
 }
 
-// Effet de défilement de la navbar - Optimisé
+// Effet de défilement de la navbar
 const navbar = document.getElementById('navbar');
 let lastScroll = 0;
 let ticking = false;
@@ -48,7 +48,7 @@ window.addEventListener('scroll', () => {
     }
 }, { passive: true });
 
-// Lien de navigation actif au défilement - Optimisé
+// Lien de navigation actif au défilement
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-link');
 let navTicking = false;
@@ -86,7 +86,7 @@ window.addEventListener('scroll', () => {
     }
 }, { passive: true });
 
-// Défilement fluide pour les liens de navigation - Optimisé
+// Défilement fluide pour les liens de navigation
 document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
@@ -107,7 +107,7 @@ document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
     });
 });
 
-// Bouton retour en haut - Optimisé
+// Bouton retour en haut
 const scrollTopBtn = document.getElementById('scroll-top');
 let scrollBtnTicking = false;
 
@@ -136,7 +136,7 @@ scrollTopBtn.addEventListener('click', () => {
     });
 });
 
-// Animation de révélation au défilement - Optimisé
+// Animation de révélation au défilement
 const revealElements = document.querySelectorAll('.reveal');
 let revealTicking = false;
 
@@ -161,7 +161,7 @@ window.addEventListener('scroll', () => {
 
 revealOnScroll(); // Initial check
 
-// Animation des barres de compétences au défilement - Optimisé
+// Animation des barres de compétences au défilement
 const skillBars = document.querySelectorAll('.skill-item');
 let skillTicking = false;
 let skillsAnimated = false;
@@ -203,77 +203,6 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 animateSkills(); // Vérification initiale
-
-// Gestion du formulaire de contact
-const contactForm = document.getElementById('contact-form');
-
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Afficher l'état de chargement
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Envoi en cours...';
-    submitBtn.disabled = true;
-    
-    // Simuler l'envoi du formulaire (à remplacer par un véritable appel API)
-    setTimeout(() => {
-        // Message de succès
-        submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Message envoyé !';
-        submitBtn.classList.remove('bg-primary', 'hover:bg-secondary');
-        submitBtn.classList.add('bg-green-500');
-        
-        // Réinitialiser le formulaire
-        contactForm.reset();
-        
-        // Réinitialiser le bouton après 3 secondes
-        setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.classList.remove('bg-green-500');
-            submitBtn.classList.add('bg-primary', 'hover:bg-secondary');
-            submitBtn.disabled = false;
-        }, 3000);
-        
-        // Afficher la notification de succès
-        showNotification('Message envoyé avec succès !', 'success');
-    }, 1500);
-});
-
-// Système de notifications
-function showNotification(message, type = 'success') {
-    const notification = document.createElement('div');
-    notification.className = `fixed top-20 right-4 px-6 py-4 rounded-lg shadow-lg z-50 transform transition-all duration-300 translate-x-0 ${
-        type === 'success' ? 'bg-green-500' : 'bg-red-500'
-    } text-white`;
-    notification.innerHTML = `
-        <div class="flex items-center space-x-3">
-            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} text-xl"></i>
-            <span>${message}</span>
-        </div>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Animation d'entrée
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 10);
-    
-    // Supprimer après 5 secondes
-    setTimeout(() => {
-        notification.style.transform = 'translateX(400px)';
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }, 5000);
-}
 
 // Effet de frappe pour la section Hero (Optionnel)
 const typingText = document.querySelector('.typing-effect');
@@ -317,7 +246,7 @@ function filterProjects(category) {
     });
 }
 
-// Effet de curseur (Optionnel - Effet moderne)
+// Effet de curseur 
 const cursor = document.createElement('div');
 cursor.className = 'custom-cursor';
 document.body.appendChild(cursor);
@@ -327,7 +256,7 @@ document.addEventListener('mousemove', (e) => {
     cursor.style.top = e.clientY + 'px';
 });
 
-// Ajouter des styles de curseur personnalisé
+// Injection du CSS pour le curseur personnalisé
 const style = document.createElement('style');
 style.textContent = `
     .custom-cursor {
@@ -378,17 +307,6 @@ function copyToClipboard(text) {
     });
 }
 
-// Basculer le mode sombre (Fonctionnalité optionnelle)
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-}
-
-// Charger la préférence du mode sombre
-if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
-}
-
 // Performance: Fonction Debounce
 function debounce(func, wait) {
     let timeout;
@@ -402,38 +320,21 @@ function debounce(func, wait) {
     };
 }
 
-// Appliquer debounce aux événements de défilement pour de meilleures performances
-window.addEventListener('scroll', debounce(() => {
-    // Animations basées sur le défilement ici
-}, 10));
-
 // Message dans la console
 console.log('%c👨‍💻 Portfolio d\'Aurélien Thébault', 'color: #3b82f6; font-size: 20px; font-weight: bold;');
 console.log('%cDéveloppeur Web Full-Stack', 'color: #6b7280; font-size: 14px;');
 console.log('%cVous cherchez un développeur ? Contactez-moi !', 'color: #10b981; font-size: 12px;');
-
-// Suivi analytique (Ajoutez votre code de suivi ici)
-// Exemple : Google Analytics, Matomo, etc.
 
 // Animation au chargement de la page
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
-// Empêcher le clic droit sur les images (Optionnel)
-document.querySelectorAll('img').forEach(img => {
-    img.addEventListener('contextmenu', (e) => {
-        // Décommenter pour empêcher le clic droit
-        // e.preventDefault();
-        // showNotification('Image protégée', 'info');
-    });
-});
-
 // Affichage du numéro de téléphone anti-spam - obfusqué
 document.addEventListener('DOMContentLoaded', () => {
     const phoneElement = document.getElementById('phone-number');
     if (phoneElement) {
-        // Numéro de téléphone divisé et inversé pour l'obfuscation
+        // Numéro de téléphone divisé pour l'obfuscation
         const parts = ['06', '19', '63', '44', '14'];
         const phone = parts.join(' ');
         phoneElement.textContent = phone;
@@ -506,17 +407,37 @@ document.addEventListener('DOMContentLoaded', () => {
 let konamiCode = [];
 const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 
+// Fonction pour activer l'effet rainbow
+function activateKonami() {
+    console.log('%c🎮 CODE KONAMI ACTIVÉ ! 🎮', 'color: #10b981; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
+    console.log('%cVous êtes un vrai geek ! 🚀', 'color: #3b82f6; font-size: 16px;');
+    document.body.style.filter = 'hue-rotate(0deg)';
+    
+    let hue = 0;
+    const rainbowInterval = setInterval(() => {
+        hue = (hue + 5) % 360;
+        document.body.style.filter = `hue-rotate(${hue}deg)`;
+    }, 50);
+    
+    setTimeout(() => {
+        clearInterval(rainbowInterval);
+        document.body.style.filter = '';
+    }, 20000);
+}
+
 document.addEventListener('keydown', (e) => {
     konamiCode.push(e.key);
     konamiCode.splice(-konamiPattern.length - 1, konamiCode.length - konamiPattern.length);
     
     if (konamiCode.join('').includes(konamiPattern.join(''))) {
-        showNotification('🎮 Code Konami activé ! Vous êtes un vrai geek !', 'success');
-        document.body.style.animation = 'rainbow 2s infinite';
+        activateKonami();
     }
 });
 
-console.log('%c💡 Astuce: Essayez le code Konami !', 'color: #8b5cf6; font-size: 12px;');
+// Rendre la fonction accessible depuis la console
+window.konami = activateKonami;
+
+console.log('%c💡 Astuce: Essayez le code Konami (↑↑↓↓←→←→BA) ou tapez konami() dans la console !', 'color: #8b5cf6; font-size: 12px;');
 
 // Gestionnaire de formulaire de contact
 document.addEventListener('DOMContentLoaded', () => {

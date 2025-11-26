@@ -228,7 +228,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Barre de défilement personnalisée */
+/* Barre de défilement personalisée */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -262,9 +262,16 @@ html {
   transform: translateX(10px);
 }
 
-.skill-item .bg-primary {
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+/* Animation de toutes les barres de progression au survol */
+.skill-item:hover .bg-gradient-to-r {
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);
+  transform: scaleX(1.02);
+  transition: all 0.3s ease;
+}
+
+.skill-item .bg-gradient-to-r {
+  transition: all 0.3s ease;
+  transform-origin: left;
 }
 
 /* Effets de cartes modernes */
@@ -516,11 +523,6 @@ select:focus {
   }
 }
 
-/* Support du mode sombre (Optionnel) */
-@media (prefers-color-scheme: dark) {
-  /* Ajoutez ici les styles du mode sombre si nécessaire */
-}
-
 /* Accessibilité */
 .skip-to-content {
   position: absolute;
@@ -568,7 +570,9 @@ input:focus-visible,
 textarea:focus-visible {
   outline: 2px solid #3b82f6;
   outline-offset: 2px;
-} /* Transition pour tous les éléments */
+}
+
+/* Transition pour tous les éléments */
 * {
   transition: color 0.2s ease, background-color 0.2s ease;
 }
