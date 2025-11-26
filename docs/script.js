@@ -1,4 +1,4 @@
-// Mobile Menu Toggle - Optimisé
+// Menu mobile - Optimisé
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
@@ -8,11 +8,11 @@ if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
         mobileMenu.classList.toggle('hidden');
         
-        // Update button label for screen readers
+        // Mettre à jour le label du bouton pour les lecteurs d'écran
         mobileMenuBtn.setAttribute('aria-label', isExpanded ? 'Ouvrir le menu de navigation' : 'Fermer le menu de navigation');
     });
 
-    // Close mobile menu when clicking on a link
+    // Fermer le menu mobile en cliquant sur un lien
     const mobileLinks = mobileMenu.querySelectorAll('a');
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -22,7 +22,7 @@ if (mobileMenuBtn && mobileMenu) {
     });
 }
 
-// Navbar Scroll Effect - Throttled
+// Effet de défilement de la navbar - Optimisé
 const navbar = document.getElementById('navbar');
 let lastScroll = 0;
 let ticking = false;
@@ -30,7 +30,7 @@ let ticking = false;
 const updateNavbar = () => {
     const currentScroll = window.pageYOffset;
     
-    // Add shadow on scroll
+    // Ajouter une ombre au défilement
     if (currentScroll > 50) {
         navbar.classList.add('shadow-lg');
     } else {
@@ -48,7 +48,7 @@ window.addEventListener('scroll', () => {
     }
 }, { passive: true });
 
-// Active Navigation Link on Scroll - Throttled
+// Lien de navigation actif au défilement - Optimisé
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-link');
 let navTicking = false;
@@ -82,7 +82,7 @@ window.addEventListener('scroll', () => {
     }
 }, { passive: true });
 
-// Smooth Scroll for Navigation Links - Optimisé
+// Défilement fluide pour les liens de navigation - Optimisé
 document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
@@ -103,7 +103,7 @@ document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
     });
 });
 
-// Scroll to Top Button - Throttled
+// Bouton retour en haut - Optimisé
 const scrollTopBtn = document.getElementById('scroll-top');
 let scrollBtnTicking = false;
 
@@ -132,7 +132,7 @@ scrollTopBtn.addEventListener('click', () => {
     });
 });
 
-// Reveal Animation on Scroll - Throttled
+// Animation de révélation au défilement - Optimisé
 const revealElements = document.querySelectorAll('.reveal');
 let revealTicking = false;
 
@@ -157,7 +157,7 @@ window.addEventListener('scroll', () => {
 
 revealOnScroll(); // Initial check
 
-// Animate Skill Bars on Scroll - Throttled and Optimized
+// Animation des barres de compétences au défilement - Optimisé
 const skillBars = document.querySelectorAll('.skill-item');
 let skillTicking = false;
 let skillsAnimated = false;
@@ -200,7 +200,7 @@ window.addEventListener('scroll', () => {
 
 animateSkills(); // Initial check
 
-// Contact Form Handling
+// Gestion du formulaire de contact
 const contactForm = document.getElementById('contact-form');
 
 contactForm.addEventListener('submit', async (e) => {
@@ -242,7 +242,7 @@ contactForm.addEventListener('submit', async (e) => {
     }, 1500);
 });
 
-// Notification System
+// Système de notifications
 function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
     notification.className = `fixed top-20 right-4 px-6 py-4 rounded-lg shadow-lg z-50 transform transition-all duration-300 translate-x-0 ${
@@ -289,7 +289,7 @@ if (typingText) {
     typeWriter();
 }
 
-// Parallax Effect for Hero Section
+// Effet parallaxe pour la section hero
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const parallax = document.querySelector('#home');
@@ -323,7 +323,7 @@ document.addEventListener('mousemove', (e) => {
     cursor.style.top = e.clientY + 'px';
 });
 
-// Add custom cursor styles
+// Ajouter des styles de curseur personnalisés
 const style = document.createElement('style');
 style.textContent = `
     .custom-cursor {
@@ -347,7 +347,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Image Lazy Loading
+// Chargement différé des images
 document.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll('img[data-src]');
     
@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
     images.forEach(img => imageObserver.observe(img));
 });
 
-// Copy to Clipboard Function
+// Fonction copier dans le presse-papiers
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
         showNotification('Copié dans le presse-papiers !', 'success');
@@ -380,12 +380,12 @@ function toggleDarkMode() {
     localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
 }
 
-// Load Dark Mode Preference
+// Charger la préférence du mode sombre
 if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark-mode');
 }
 
-// Performance: Debounce Function
+// Performance: Fonction Debounce
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -398,12 +398,12 @@ function debounce(func, wait) {
     };
 }
 
-// Apply debounce to scroll events for better performance
+// Appliquer debounce aux événements de défilement pour de meilleures performances
 window.addEventListener('scroll', debounce(() => {
     // Scroll-based animations here
 }, 10));
 
-// Console Message
+// Message console
 console.log('%c👨‍💻 Portfolio d\'Aurélien Thébault', 'color: #3b82f6; font-size: 20px; font-weight: bold;');
 console.log('%cDéveloppeur Web Full-Stack', 'color: #6b7280; font-size: 14px;');
 console.log('%cVous cherchez un développeur ? Contactez-moi !', 'color: #10b981; font-size: 12px;');
@@ -425,26 +425,23 @@ document.querySelectorAll('img').forEach(img => {
     });
 });
 
-// Anti-spam phone number display - obfuscated
+// Affichage du numéro de téléphone anti-spam - obfusqué
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🔐 Initialisation protection anti-spam...');
-    
     const phoneElement = document.getElementById('phone-number');
     if (phoneElement) {
-        // Phone number split and reversed for obfuscation
+        // Numéro de téléphone divisé et inversé pour l'obfuscation
         const parts = ['06', '19', '63', '44', '14'];
         const phone = parts.join(' ');
         phoneElement.textContent = phone;
-        console.log('✅ Téléphone protégé');
     }
     
-    // Anti-spam email display - obfuscated
+    // Affichage de l'email anti-spam - obfusqué
     const emailDisplay = document.getElementById('email-display');
     const emailLink = document.getElementById('email-link');
     const emailLinkHero = document.getElementById('email-link-hero');
     
     if (emailDisplay && emailLink) {
-        // Email parts split for obfuscation
+        // Parties de l'email divisées pour l'obfuscation
         const user = ['aurel', '140783'].join('');
         const domain = ['gmail', 'com'].join('.');
         const email = user + '@' + domain;
@@ -452,7 +449,6 @@ document.addEventListener('DOMContentLoaded', () => {
         emailDisplay.textContent = email;
         emailLink.href = 'mailto:' + email;
         emailLink.setAttribute('aria-label', 'Envoyer un email à ' + email);
-        console.log('✅ Email section contact protégé:', email);
     }
     
     if (emailLinkHero) {
@@ -461,22 +457,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = user + '@' + domain;
         
         emailLinkHero.href = 'mailto:' + email;
-        console.log('✅ Email hero protégé:', emailLinkHero.href);
     }
     
-    // Anti-spam GitHub profile - obfuscated
+    // Profil GitHub anti-spam - obfusqué
     const githubLinkHero = document.getElementById('github-link-hero');
     const githubLinkContact = document.getElementById('github-link-contact');
     
     if (githubLinkHero) {
-        // GitHub username split for obfuscation
+        // Nom d'utilisateur GitHub divisé pour l'obfuscation
         const username = ['Aurel', '1407'].join('');
         const githubUrl = 'https://github.com/' + username;
         
         githubLinkHero.href = githubUrl;
-        console.log('✅ GitHub hero protégé:', githubUrl);
-    } else {
-        console.warn('❌ Élément github-link-hero non trouvé');
     }
     
     if (githubLinkContact) {
@@ -484,24 +476,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const githubUrl = 'https://github.com/' + username;
         
         githubLinkContact.href = githubUrl;
-        console.log('✅ GitHub contact protégé:', githubUrl);
-    } else {
-        console.warn('❌ Élément github-link-contact non trouvé');
     }
     
-    // Anti-spam LinkedIn profile - obfuscated
+    // Profil LinkedIn anti-spam - obfusqué
     const linkedinLinkHero = document.getElementById('linkedin-link-hero');
     const linkedinLinkContact = document.getElementById('linkedin-link-contact');
     
     if (linkedinLinkHero) {
-        // LinkedIn profile split for obfuscation
+        // Profil LinkedIn divisé pour l'obfuscation
         const profile = ['aurélien-thébault-', '244b84336'].join('');
         const linkedinUrl = 'https://www.linkedin.com/in/' + profile;
         
         linkedinLinkHero.href = linkedinUrl;
-        console.log('✅ LinkedIn hero protégé:', linkedinUrl);
-    } else {
-        console.warn('❌ Élément linkedin-link-hero non trouvé');
     }
     
     if (linkedinLinkContact) {
@@ -509,15 +495,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const linkedinUrl = 'https://www.linkedin.com/in/' + profile;
         
         linkedinLinkContact.href = linkedinUrl;
-        console.log('✅ LinkedIn contact protégé:', linkedinUrl);
-    } else {
-        console.warn('❌ Élément linkedin-link-contact non trouvé');
     }
-    
-    console.log('🎉 Protection anti-spam complète !');
 });
 
-// Easter Egg - Konami Code
+// Easter Egg - Code Konami
 let konamiCode = [];
 const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 
@@ -533,7 +514,7 @@ document.addEventListener('keydown', (e) => {
 
 console.log('%c💡 Astuce: Essayez le code Konami !', 'color: #8b5cf6; font-size: 12px;');
 
-// Contact Form Handler
+// Gestionnaire de formulaire de contact
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
