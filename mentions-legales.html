@@ -1,26 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
   <head>
-    <!-- Google Analytics (configuration basée sur le consentement) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-CUXWNCS693"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      
-      // Configuration initiale sans consentement (mode refusé par défaut)
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied'
-      });
-      
-      gtag("config", "G-CUXWNCS693", { anonymize_ip: true });
-    </script>
-    </script>
+    <!-- Google Analytics retiré volontairement - plus de suivi côté client -->
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -167,37 +148,23 @@
             </h2>
 
             <h3 class="text-xl font-semibold mb-3 text-white mt-4">
-              4.1 Google Analytics
+              4.1 Cookies de suivi et d'analyse
             </h3>
             <p class="mb-3">
-              Ce site utilise Google Analytics, un service d'analyse web fourni
-              par Google, Inc. Google Analytics utilise des cookies pour
-              analyser l'utilisation du site par les visiteurs.
+              Ce site n'utilise aucun cookie de suivi ou de mesure d'audience
+              (ex. Google Analytics). Aucune donnée à des fins analytiques n'est
+              collectée par le site.
             </p>
             <p class="mb-3">
-              <strong class="text-white">Données collectées :</strong> Pages
-              visitées, durée des visites, type d'appareil, localisation
-              approximative, navigateur utilisé.
+              <strong class="text-white">Formulaire :</strong> Les données
+              fournies via le formulaire de contact sont transmises à Formspree
+              uniquement pour permettre le traitement du message. Cette
+              transmission n'utilise pas des cookies de suivi côté visiteur.
             </p>
             <p class="mb-3">
-              <strong class="text-white">Finalité :</strong> Améliorer
-              l'expérience utilisateur et comprendre le comportement des
-              visiteurs.
-            </p>
-            <p class="mb-3">
-              <strong class="text-white">Conservation :</strong> Les données
-              sont conservées 26 mois par Google Analytics.
-            </p>
-            <p class="mb-3">
-              Vous pouvez désactiver Google Analytics en installant le module
-              complémentaire de navigateur :
-              <a
-                href="https://tools.google.com/dlpage/gaoptout"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-blue-400 hover:text-blue-300"
-                >https://tools.google.com/dlpage/gaoptout</a
-              >
+              Si vous avez des questions sur le traitement des données, merci
+              de consulter notre section relative aux droits RGPD ou de nous
+              contacter depuis la page de contact.
             </p>
 
             <h3 class="text-xl font-semibold mb-3 text-white mt-6">
@@ -339,25 +306,7 @@
       </p>
     </footer>
 
-    <!-- Bandeau de consentement des cookies -->
-    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-sm border-t border-white/10 p-4 z-50 hidden">
-      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="text-sm text-gray-300">
-          <p>
-            Ce site utilise Google Analytics pour analyser le trafic. Les données sont anonymisées.
-            <a href="#cookies" class="text-blue-400 hover:text-blue-300 underline">En savoir plus</a>
-          </p>
-        </div>
-        <div class="flex gap-3">
-          <button id="cookie-accept" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors">
-            Accepter
-          </button>
-          <button id="cookie-decline" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors">
-            Refuser
-          </button>
-        </div>
-      </div>
-    </div>
+    <!-- Cookie banner supprimé (Google Analytics supprimé) -->
 
     <!-- Protection anti-spam -->
     <script>
@@ -393,43 +342,6 @@
       });
     </script>
     
-    <!-- Gestion du consentement des cookies -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const cookieBanner = document.getElementById('cookie-banner');
-        const acceptBtn = document.getElementById('cookie-accept');
-        const declineBtn = document.getElementById('cookie-decline');
-        
-        // Vérifier le consentement existant
-        const consent = localStorage.getItem('cookieConsent');
-        
-        if (consent === 'accepted') {
-          // Activer Analytics si déjà accepté
-          gtag('consent', 'update', {
-            'analytics_storage': 'granted'
-          });
-        } else if (!consent) {
-          // Afficher le bandeau si pas de choix enregistré
-          cookieBanner.classList.remove('hidden');
-        }
-        
-        // Gérer l'acceptation
-        acceptBtn.addEventListener('click', function() {
-          localStorage.setItem('cookieConsent', 'accepted');
-          cookieBanner.classList.add('hidden');
-          // Activer Google Analytics
-          gtag('consent', 'update', {
-            'analytics_storage': 'granted'
-          });
-        });
-        
-        // Gérer le refus
-        declineBtn.addEventListener('click', function() {
-          localStorage.setItem('cookieConsent', 'declined');
-          cookieBanner.classList.add('hidden');
-          // Analytics reste désactivé (déjà en mode 'denied' par défaut)
-        });
-      });
-    </script>
+    <!-- Gestion du consentement supprimée -->
   </body>
 </html>
