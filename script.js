@@ -177,6 +177,8 @@ const animateSkills = () => {
         return;
     }
     
+    let allAnimated = true;
+    
     skillBars.forEach(skill => {
         const skillTop = skill.getBoundingClientRect().top;
         
@@ -191,11 +193,20 @@ const animateSkills = () => {
                     progressBar.style.transition = 'width 1.5s ease-out';
                     progressBar.style.width = width;
                 }, 100);
-                
-                skillsAnimated = true;
+            }
+        } else {
+            // Si une barre n'est pas encore visible, toutes ne sont pas animées
+            const progressBar = skill.querySelector('[style*="width"]');
+            if (progressBar && !progressBar.classList.contains('animated')) {
+                allAnimated = false;
             }
         }
     });
+    
+    // Marquer comme animé seulement si toutes les barres visibles ont été animées
+    if (allAnimated) {
+        skillsAnimated = true;
+    }
     
     skillTicking = false;
 };
